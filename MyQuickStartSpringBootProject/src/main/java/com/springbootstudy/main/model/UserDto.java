@@ -2,24 +2,19 @@ package com.springbootstudy.main.model;
 
 public class UserDto extends User {
 
-	private String encryptedPassword;
+	private String userId;
 
-	private String recoverEmailAddress;
-
-	public String getEncryptedPassword() {
-		return encryptedPassword;
+	@Override
+	public String toString() {
+		return "UserDto [userId=" + userId + "]";
 	}
 
-	public void setEncryptedPassword(String encryptedPassword) {
-		this.encryptedPassword = encryptedPassword;
+	public String getUserId() {
+		return userId;
 	}
 
-	public String getRecoverEmailAddress() {
-		return recoverEmailAddress;
-	}
-
-	public void setRecoverEmailAddress(String recoverEmailAddress) {
-		this.recoverEmailAddress = recoverEmailAddress;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

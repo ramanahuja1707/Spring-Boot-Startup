@@ -14,16 +14,16 @@ import com.springbootstudy.main.model.entities.UserEntity;
 import com.springbootstudy.main.repository.UserRepository;
 
 @Service
-public class MyUserServiceDetails implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<UserEntity> user = userRepository.findUserByUserName(username);
+		Optional<UserEntity> user = userRepository.findUserByUsername(username);
 		MyUserDetails userDetails = new MyUserDetails();
-		BeanUtils.copyProperties(user, userDetails);
+		BeanUtils.copyProperties(user.get(), userDetails);
 		return userDetails;
 	}
 

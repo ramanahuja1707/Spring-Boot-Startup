@@ -23,7 +23,6 @@ public class UserServiceImpl implements IUserService {
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(userDto, userEntity);
 		userEntity.setDateUserAdded(new Date());
-
 		UserEntity userEntityReturned = userRepository.save(userEntity);
 		UserDto userDtoReturned = new UserDto();
 		BeanUtils.copyProperties(userEntityReturned, userDtoReturned);
@@ -31,10 +30,10 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public UserDto getUser(String emailId) {
-		Optional<UserEntity> user = userRepository.findUserByEmailId(emailId);
+	public UserDto getUser(String username) {
+		Optional<UserEntity> user = userRepository.findUserByUsername(username);
 		UserDto dto = new UserDto();
-		BeanUtils.copyProperties(user, dto);
+		BeanUtils.copyProperties(user.get(), dto);
 		return dto;
 	}
 

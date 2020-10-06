@@ -2,14 +2,6 @@ package com.springbootstudy.main.model;
 
 public class User {
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -18,15 +10,20 @@ public class User {
 		this.password = password;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	private String userName;
 	private String password;
-	private String emailId;
+	private String username;
+
+	@Override
+	public String toString() {
+		return "User [password=" + password + ", username=" + username + "]";
+	}
+
 }

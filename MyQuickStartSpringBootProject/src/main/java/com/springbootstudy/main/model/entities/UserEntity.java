@@ -16,41 +16,19 @@ public class UserEntity {
 	private long id;
 
 	@Column(nullable = false, unique = true)
-	private String userName;
+	private String username;
 
 	@Column(nullable = false)
 	private String password;
 
 	@Column(nullable = false, unique = true)
-	private String emailId;
+	private String userId;
 
 	@Column(nullable = false)
 	private Boolean emailVerification = false;
 
 	@Column(nullable = false)
-	private String encryptedPassword;
-
-	@Column(nullable = false)
-	private String recoverEmailAddress;
-
-	@Column(nullable = false)
 	private Date dateUserAdded;
-
-	public String getEncryptedPassword() {
-		return encryptedPassword;
-	}
-
-	public void setEncryptedPassword(String encryptedPassword) {
-		this.encryptedPassword = encryptedPassword;
-	}
-
-	public String getRecoverEmailAddress() {
-		return recoverEmailAddress;
-	}
-
-	public void setRecoverEmailAddress(String recoverEmailAddress) {
-		this.recoverEmailAddress = recoverEmailAddress;
-	}
 
 	public Date getDateUserAdded() {
 		return dateUserAdded;
@@ -68,14 +46,6 @@ public class UserEntity {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -84,20 +54,34 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
 	public Boolean getEmailVerification() {
 		return emailVerification;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	public void setEmailVerification(Boolean emailVerification) {
 		this.emailVerification = emailVerification;
+	}
+
+	@Override
+	public String toString() {
+		return "UserEntity [id=" + id + ", username=" + username + ", password=" + password + ", userId=" + userId
+				+ ", emailVerification=" + emailVerification + ", dateUserAdded=" + dateUserAdded + "]";
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }
